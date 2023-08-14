@@ -35,8 +35,8 @@ def main():
             pass
 
     # convert data to csv
-    rt_data = concat([[f'running_time/totalTimeMPReana' for spl in spls] for label in labels])
-    mem_data = concat([[f'memory_usage/totalMemoryMPReana' for spl in spls] for label in labels])
+    rt_data = concat([[f'running_time/totalTimeMP{label}' for spl in spls] for label in labels])
+    mem_data = concat([[f'memory_usage/totalMemoryMP{label}' for spl in spls] for label in labels])
 
     for filename in rt_data:
         out_to_csv(f'{data_path}/{filename}.out', f'csv/{filename}.csv')
