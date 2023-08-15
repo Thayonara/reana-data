@@ -13,7 +13,7 @@ def main():
     yscale = 'log'
     data_path = 'datasets/data'
     output_path = 'results'
-    spls = ['BSN']
+    spls = ['MP']
     labels = ['Reana', 'ReanaE']
 
     if len(sys.argv) > 2:
@@ -35,8 +35,8 @@ def main():
             pass
 
     # convert data to csv
-    rt_data = concat([[f'running_time/totalTimeMP{label}' for spl in spls] for label in labels])
-    mem_data = concat([[f'memory_usage/totalMemoryMP{label}' for spl in spls] for label in labels])
+    rt_data = concat([[f'running_time/totalTime{spl}{label}' for spl in spls] for label in labels])
+    mem_data = concat([[f'memory_usage/totalMemory{spl}{label}' for spl in spls] for label in labels])
 
     for filename in rt_data:
         out_to_csv(f'{data_path}/{filename}.out', f'csv/{filename}.csv')
